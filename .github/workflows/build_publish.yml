@@ -9,6 +9,7 @@ on:  # yamllint disable-line rule:truthy
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    environment: main
     steps:
 
       - name: Checkout repo
@@ -22,10 +23,9 @@ jobs:
       - name: Publish PDF
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
           source: cv-gboeing.pdf
           target: ~/public_html/share
           use_insecure_cipher: true
