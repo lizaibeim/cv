@@ -20,7 +20,7 @@ jobs:
           root_file: cv-gboeing.tex
 
       - name: Upload PDF as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: CV PDF
           path: cv-zaibei.pdf
