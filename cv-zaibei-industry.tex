@@ -1,0 +1,164 @@
+%!TeX program = pdflatex
+
+\documentclass[11pt,letterpaper]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[strict,autostyle]{csquotes}
+\usepackage[USenglish]{babel}
+\usepackage{microtype}
+\usepackage{datetime}
+\usepackage{tabto}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+
+\newcommand{\myname}{Zaibei (Eric) Li}
+
+\usepackage{ebgaramond}
+\usepackage{tgheros}
+
+\newcommand{\listtabwidth}{1.9cm}
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+\SetTracking{encoding=*, family=\sfdefault}{30}
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{22pt plus 4pt minus 4pt}{6pt plus 2pt minus 2pt}
+
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{14pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+\geometry{body={6.7in, 9.2in},
+    left=0.9in,
+    top=0.8in}
+
+\setlength\parindent{0em}
+\setstretch{0.94}
+
+\newcommand{\listitemspace}{0.18em}
+
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {software engineering, research engineering, multimodal learning analytics, IoT, HCI},
+    pdftitle    = {\myname: Industry Resume},
+    pdfsubject  = {Resume},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+\raggedright{}
+
+\namefont{\myname}
+
+\vspace{0.8em}
+\begin{minipage}[t]{0.62\textwidth}
+    Department of Computer Science and Science Education\\
+    University of Copenhagen
+\end{minipage}
+\begin{minipage}[t]{0.37\textwidth}
+    \flushright{}
+    \href{mailto:zali@di.ku.dk}{zali@di.ku.dk} \\
+    +45 91858214 \\
+    \href{https://lizaibeim.github.io}{lizaibeim.github.io}
+\end{minipage}
+
+\section*{Summary}
+
+Ph.D. researcher in Computer Science building data-driven tools for multimodal learning analytics, human-AI collaboration, and interactive systems. Experience shipping open-source research software, prototyping IoT and audio-based sensing workflows, and turning research ideas into usable tools, dashboards, and empirical studies.
+
+\section*{Technical Skills}
+
+Python, C\#, Unity, LaTeX; multimodal data collection, IoT prototyping, audio analysis, dashboard design, data visualization, human-computer interaction, human-AI collaboration, research prototyping, academic writing.
+
+\section*{Experience}
+
+\begin{tablist}
+    \item[2024--] \tab{}\textbf{Doctoral Researcher}, University of Copenhagen, Copenhagen, Denmark
+\end{tablist}
+
+\begin{itemize}
+    \item Developed open-source tooling for multimodal learning analytics, including \textbf{OpenMMLA}, an IoT-based data collection toolkit for classroom and collaboration research.
+    \item Designed and implemented research prototypes spanning sensing, audio analysis, and interactive dashboards to support data collection and post-hoc analysis in authentic learning settings.
+    \item Published first-author and co-authored work at LAK, EC-TEL, ICALT, and related venues; received the \textbf{Best Short Paper Award} at LAK 2025.
+\end{itemize}
+
+\begin{tablist}
+    \item[2023--2024] \tab{}\textbf{Research Assistant}, University of Copenhagen, Copenhagen, Denmark
+\end{tablist}
+
+\begin{itemize}
+    \item Supported research and system prototyping for multimodal learning analytics and smart learning environments.
+    \item Contributed to voice and audio sensing workflows, data collection infrastructure, and early-stage platform design for mBox-related projects.
+\end{itemize}
+
+\begin{tablist}
+    \item[2024--] \tab{}\textbf{Teaching Assistant}, University of Copenhagen
+\end{tablist}
+
+\begin{itemize}
+    \item Assisted with \textit{Introduction to Python Programming and Data Science}, supporting undergraduate teaching and hands-on programming exercises.
+\end{itemize}
+
+\section*{Selected Projects}
+
+\begin{tablist}
+    \item[OpenMMLA] \tab{}Open-source multimodal data collection toolkit for learning analytics. Focused on IoT-based sensing and research workflow support. \href{https://github.com/ucph-ccs/OpenMMLA}{GitHub}
+    \item[MotionMatching] \tab{}Real-time motion matching system in Unity and C\# for interactive character motion generation. \href{https://github.com/lizaibeim/motion-matching}{GitHub}
+    \item[CasperFFG] \tab{}Python simulation of CasperFFG consensus combined with Proof-of-Work for blockchain experimentation. \href{https://github.com/lizaibeim/casper-ffg}{GitHub}
+\end{tablist}
+
+\section*{Selected Publications}
+
+\begin{tablist}
+    \item[2025] \tab{}\textbf{Z. Li}, S. Yamaguchi, and D. Spikol. \enquote{OpenMMLA: an IoT-based Multimodal Data Collection Toolkit for Learning Analytics.} LAK '25.
+    \item[2024] \tab{}\textbf{Z. Li}, M. T. Jensen, A. Nolte, and D. Spikol. \enquote{Field report for Platform mBox: Designing an Open MMLA Platform.} LAK '24.
+    \item[2024] \tab{}D. Spikol, \textbf{Z. Li}, A. Nolte, A. Ohsaki, and K. Rapur. \enquote{Investigating Hackathons with Collaboration Analytics.} ICGJ '24.
+\end{tablist}
+
+\section*{Education}
+
+\begin{tablist}
+    \item[Ph.D.] \tab{}Computer Science, University of Copenhagen, 2027 (expected)
+    \item[M.S.] \tab{}Computer Science, University of Copenhagen, 2022
+    \item[B.S.] \tab{}Information Technology, Hong Kong Polytechnic University, 2019
+    \item[Exchange] \tab{}Computer Science, KAIST, 2017
+\end{tablist}
+
+\section*{Awards}
+
+\begin{tablist}
+    \item[2025] \tab{}Best Short Paper Award, LAK '25
+    \item[2024--2027] \tab{}Ph.D. Fellowship, University of Copenhagen
+\end{tablist}
+
+\begin{center}
+    \vfill
+    Updated \monthyeardate\today
+\end{center}
+
+\end{document}
