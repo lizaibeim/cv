@@ -1,44 +1,61 @@
 %!TeX program = pdflatex
+% Geoff Boeing's Curriculum Vitae
+% Email: boeing@usc.edu
+% Web: https://geoffboeing.com/
+% Repo: https://github.com/gboeing/cv
 
 \documentclass[11pt,letterpaper]{report}
 
-\usepackage[T1]{fontenc}
-\usepackage[strict,autostyle]{csquotes}
-\usepackage[USenglish]{babel}
-\usepackage{microtype}
-\usepackage{datetime}
-\usepackage{tabto}
-\usepackage{setspace}
-\usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{enumitem}
-\usepackage{titlesec}
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{setspace} % custom line spacing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
 \usepackage{xcolor}
 
+% what is your name?
 \newcommand{\myname}{Zaibei (Eric) Li}
 
-\usepackage{ebgaramond}
-\usepackage{tgheros}
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{tgheros}    % document's sans serif typeface
 
-\newcommand{\listtabwidth}{1.9cm}
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
 \newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
 
-\SetTracking{encoding=*, family=\sfdefault}{30}
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
 \titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
-\titlespacing{\section}{0pt}{22pt plus 4pt minus 4pt}{6pt plus 2pt minus 2pt}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
 
+% set subsection heading fonts and before/after spacing
 \titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
-\titlespacing{\subsection}{0pt}{14pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
 
-\geometry{body={6.7in, 9.2in},
-    left=0.9in,
-    top=0.8in}
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
 
+% prevent paragraph indentation
 \setlength\parindent{0em}
-\setstretch{0.94}
 
-\newcommand{\listitemspace}{0.18em}
+% set line spacing
+\setstretch{0.9}
 
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
 \renewenvironment{itemize}
 {\begin{list}{}{\setlength{\leftmargin}{0em}
                 \setlength{\parskip}{0em}
@@ -46,6 +63,7 @@
                 \setlength{\parsep}{\listitemspace}}}
 {\end{list}}
 
+% make tabbed lists so content is left-aligned next to years
 \TabPositions{\listtabwidth}
 \newlist{tablist}{description}{3}
 \setlist[tablist]{leftmargin=\listtabwidth,
@@ -56,109 +74,145 @@
     parsep=\listitemspace,
     font=\normalfont}
 
+% print only the month and year when using \today
 \newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
+% define hyperlink appearance and metadata for pdf properties
 \hypersetup{
     colorlinks  = true,
     urlcolor    = black,
     citecolor   = black,
     linkcolor   = black,
     pdfauthor   = {\myname},
-    pdfkeywords = {software engineering, research engineering, multimodal learning analytics, IoT, HCI},
-    pdftitle    = {\myname: Industry Resume},
-    pdfsubject  = {Resume},
+    pdfkeywords = {multimodal learning analytics, Human-AI collaboration, IoT, ubiquitous computing},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
     pdfpagemode = UseNone
 }
 
 \begin{document}
-\raggedright{}
+    \raggedright{}
 
-\namefont{\myname}
+    % display your name as the document title
+    \namefont{\myname}
 
-\vspace{0.8em}
-\begin{minipage}[t]{0.62\textwidth}
-    Department of Computer Science and Science Education\\
-    University of Copenhagen
-\end{minipage}
-\begin{minipage}[t]{0.37\textwidth}
-    \flushright{}
-    \href{mailto:zali@di.ku.dk}{zali@di.ku.dk} \\
-    +45 91858214 \\
-    \href{https://lizaibeim.github.io}{lizaibeim.github.io}
-\end{minipage}
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Human-Centered Computing\\
+        Department of Computer Science\\
+        University of Copenhagen
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \flushright{}
+        \href{mailto:zali@di.ku.dk}{zali@di.ku.dk} \\
+        +45 91858214 \\
+        \href{https://lizaibeim.github.io}{lizaibeim.github.io}
+    \end{minipage}
+    
 
-\section*{Summary}
+    \section*{Research Profile}
 
-Ph.D. researcher in Computer Science building data-driven tools for multimodal learning analytics, human-AI collaboration, and interactive systems. Experience shipping open-source research software, prototyping IoT and audio-based sensing workflows, and turning research ideas into usable tools, dashboards, and empirical studies.
+    I am a Doctoral Researcher at the University of Copenhagen, specializing in multimodal data analytics and human-centered AI systems. My research bridges multimodal wearable sensing, human-AI collaboration, and ubiquitous computing. I design and build IoT-based systems and interactive dashboards to model and visualize complex collaborative behavior in real-world environments.
 
-\section*{Technical Skills}
+    \section*{Education}
 
-Python, C\#, Unity, LaTeX; multimodal data collection, IoT prototyping, audio analysis, dashboard design, data visualization, human-computer interaction, human-AI collaboration, research prototyping, academic writing.
+    \begin{tablist}
 
-\section*{Experience}
+        \item[Ph.D.] \tab{}Computer Science, University of Copenhagen, Copenhagen, 2027 (expected)
+        \item[M.S.]  \tab{}Computer Science, University of Copenhagen, 2022
+        \item[B.S.]  \tab{}Information Technology, Hong Kong Polytechnic University, 2019
+        \item[Exchange]  \tab{}Computer Science, The Korea Advanced Institute of Science and Technology, 2017
 
-\begin{tablist}
-    \item[2024--] \tab{}\textbf{Doctoral Researcher}, University of Copenhagen, Copenhagen, Denmark
-\end{tablist}
+    \end{tablist}
 
-\begin{itemize}
-    \item Developed open-source tooling for multimodal learning analytics, including \textbf{OpenMMLA}, an IoT-based data collection toolkit for classroom and collaboration research.
-    \item Designed and implemented research prototypes spanning sensing, audio analysis, and interactive dashboards to support data collection and post-hoc analysis in authentic learning settings.
-    \item Published first-author and co-authored work at LAK, EC-TEL, ICALT, and related venues; received the \textbf{Best Short Paper Award} at LAK 2025.
-\end{itemize}
+    \section*{Research Experience}
 
-\begin{tablist}
-    \item[2023--2024] \tab{}\textbf{Research Assistant}, University of Copenhagen, Copenhagen, Denmark
-\end{tablist}
+    \noindent \textbf{Hiroshima City University} \hfill Hiroshima, Japan \\
+    \textit{Visiting Researcher} \hfill Nov 2025--Jan 2026
+    \begin{list}{\textbullet}{\setlength{\leftmargin}{1.2em}
+                   \setlength{\labelsep}{0.5em}
+                   \setlength{\itemsep}{\listitemspace}
+                   \setlength{\parsep}{\listitemspace}}
+        \item Prototyped a multimodal sensing setup (Arduino, mobile sensing, smart glasses); secured a research partnership with Meta \href{https://www.projectaria.com/}{Project Aria}.
+        \item Developed CoLA (\href{https://ucph-cola.org}{ucph-cola.org}), an egocentric wearable platform integrating real-time multimodal sensing and Human-AI collaboration for learning analytics.
+    \end{list}
+    \vspace{0.8em}
 
-\begin{itemize}
-    \item Supported research and system prototyping for multimodal learning analytics and smart learning environments.
-    \item Contributed to voice and audio sensing workflows, data collection infrastructure, and early-stage platform design for mBox-related projects.
-\end{itemize}
+    \noindent \textbf{University of Copenhagen} \hfill Copenhagen, Denmark \\
+    \textit{Doctoral Researcher} \hfill Feb 2024--Present
+    \begin{list}{\textbullet}{\setlength{\leftmargin}{1.2em}
+                   \setlength{\labelsep}{0.5em}
+                   \setlength{\itemsep}{\listitemspace}
+                   \setlength{\parsep}{\listitemspace}}
+        \item Integrated prior prototypes into OpenMMLA, an IoT-based multimodal toolkit with reusable end-to-end data pipelines for collaborative behavior analysis.
+        \item Developed interactive workflows and pipeline components for multimodal sensing, optimizing data synchronization, sensor fusion, and transparent behavioral analysis.
+    \end{list}
+    \vspace{0.8em}
 
-\begin{tablist}
-    \item[2024--] \tab{}\textbf{Teaching Assistant}, University of Copenhagen
-\end{tablist}
+    \noindent \textbf{University of Copenhagen} \hfill Copenhagen, Denmark \\
+    \textit{Research Assistant} \hfill Jun 2023--Feb 2024
+    \begin{list}{\textbullet}{\setlength{\leftmargin}{1.2em}
+                   \setlength{\labelsep}{0.5em}
+                   \setlength{\itemsep}{\listitemspace}
+                   \setlength{\parsep}{\listitemspace}}
+        \item Prototyped sociometric badges and established early multimodal data workflows, which directly evolved into the open-source OpenMMLA toolkit.
+    \end{list}
 
-\begin{itemize}
-    \item Assisted with \textit{Introduction to Python Programming and Data Science}, supporting undergraduate teaching and hands-on programming exercises.
-\end{itemize}
 
-\section*{Selected Projects}
+    \section*{Selected Publications}
 
-\begin{tablist}
-    \item[OpenMMLA] \tab{}Open-source multimodal data collection toolkit for learning analytics. Focused on IoT-based sensing and research workflow support. \href{https://github.com/ucph-ccs/OpenMMLA}{GitHub}
-    \item[MotionMatching] \tab{}Real-time motion matching system in Unity and C\# for interactive character motion generation. \href{https://github.com/lizaibeim/motion-matching}{GitHub}
-    \item[CasperFFG] \tab{}Python simulation of CasperFFG consensus combined with Proof-of-Work for blockchain experimentation. \href{https://github.com/lizaibeim/casper-ffg}{GitHub}
-\end{tablist}
+    \begin{tablist}
+        \item[2026] \tab{} \textbf{Z. Li}, V. Holm-Janas, S. Yamaguchi, and D. Spikol. \enquote{Designing for Transparency: Gaze-Augmented Collaborative Action Recognition with Vision-Language Models.} \textit{Proceedings of the 26th IEEE International Conference on Advanced Learning Technologies (ICALT '26)} \textit{[Accepted]}
+        \item[2026] \tab{} \textbf{Z. Li}, Q. Li, S. Yamaguchi, and D. Spikol. \enquote{BadgeX: IoT-Enhanced Wearable Analytics Meets LLMs for Collaborative Learning.} \textit{arXiv preprint}, \href{https://arxiv.org/abs/2604.04093}{arXiv:2604.04093} \textit{[Preprint]}
+        \item[2025] \tab{} \textbf{Z. Li}, S. Yamaguchi, and D. Spikol. \enquote{OpenMMLA: an IoT-based Multimodal Data Collection Toolkit for Learning Analytics.} \textit{Proceedings of the 15th Learning Analytics and Knowledge Conference (LAK '25)}, \href{https://doi.org/10.1145/3706468.3706525}{https://doi.org/10.1145/3706468.3706525} \textit{[Oral presentation]}
+        \item[2024] \tab{} \textbf{Z. Li}, M. T. Jensen, A. Nolte, and D. Spikol. \enquote{Field report for Platform mBox: Designing an Open MMLA Platform.} \textit{Proceedings of the 14th Learning Analytics and Knowledge Conference (LAK '24)}, \href{https://doi.org/10.1145/3636555.3636872}{https://doi.org/10.1145/3636555.3636872} \textit{[Oral presentation]}
+        \item[2024] \tab{} \textbf{Z. Li}, D. Spikol, and L. Nøhr. \enquote{mBox-audio: Unveiling Conversational Dynamics through Real-Time and Post-Time Audio Analysis for MMLA.} \textit{pp. 130-132 in Companion Proceedings 14th International Conference on Learning Analytics and Knowledge (LAK '24)}, \href{https://www.solaresearch.org/wp-content/uploads/2024/03/LAK24_CompanionProceedings.pdf}{LAK '24 Companion Proceedings} \textit{[Poster]}
+    \end{tablist}
 
-\section*{Selected Publications}
 
-\begin{tablist}
-    \item[2025] \tab{}\textbf{Z. Li}, S. Yamaguchi, and D. Spikol. \enquote{OpenMMLA: an IoT-based Multimodal Data Collection Toolkit for Learning Analytics.} LAK '25.
-    \item[2024] \tab{}\textbf{Z. Li}, M. T. Jensen, A. Nolte, and D. Spikol. \enquote{Field report for Platform mBox: Designing an Open MMLA Platform.} LAK '24.
-    \item[2024] \tab{}D. Spikol, \textbf{Z. Li}, A. Nolte, A. Ohsaki, and K. Rapur. \enquote{Investigating Hackathons with Collaboration Analytics.} ICGJ '24.
-\end{tablist}
+    \section*{Selected Projects}
 
-\section*{Education}
+    \begin{itemize}
+    
+        \item \textbf{CoLA}: An egocentric wearable platform for real-time multimodal sensing and Human-AI collaboration in learning analytics, \href{https://ucph-cola.org}{\textcolor{blue}{\textit{link}}}
+        \item \textbf{OpenMMLA}: An open-source multimodal data collection toolkit for learning analytics, \href{https://github.com/ucph-ccs/OpenMMLA}{\textcolor{blue}{\textit{link}}}
+        \item \textbf{MotionMatching}: A real-time motion matching system on Unity implemented in C\#, \href{https://github.com/lizaibeim/motion-matching}{\textcolor{blue}{\textit{link}}}
+        \item \textbf{CasperFFG}: A Python implementation of the CasperFFG consensus combined with PoW consensus on simulated blockchain, \href{https://github.com/lizaibeim/casper-ffg}{\textcolor{blue}{\textit{link}}}
 
-\begin{tablist}
-    \item[Ph.D.] \tab{}Computer Science, University of Copenhagen, 2027 (expected)
-    \item[M.S.] \tab{}Computer Science, University of Copenhagen, 2022
-    \item[B.S.] \tab{}Information Technology, Hong Kong Polytechnic University, 2019
-    \item[Exchange] \tab{}Computer Science, KAIST, 2017
-\end{tablist}
+    \end{itemize}
 
-\section*{Awards}
 
-\begin{tablist}
-    \item[2025] \tab{}Best Short Paper Award, LAK '25
-    \item[2024--2027] \tab{}Ph.D. Fellowship, University of Copenhagen
-\end{tablist}
+    \section*{Professional Employment}
 
-\begin{center}
-    \vfill
-    Updated \monthyeardate\today
-\end{center}
+    \noindent \textbf{Yonyou} \hfill Hong Kong, China \\
+    \textit{IT Consultant} \hfill May 2019--Aug 2019
+    \vspace{0.8em}
+
+    \noindent \textbf{Sina.com} \hfill Beijing, China \\
+    \textit{Data Analyst Intern} \hfill Jun 2017--Aug 2017
+
+
+    \section*{Grants and Awards}
+
+    \begin{tablist}
+        \item[2025\phantom{--2027}] \tab{}Best Short Paper Award @ LAK '25
+        \item[2025\phantom{--2027}] \tab{}Meta Project Aria Research Partnership / Hardware Grant
+        \item[2024--2027] \tab{}PhD Fellowship, University of Copenhagen
+    \end{tablist}
+
+
+    \section*{Service}
+
+    Peer reviewer: \textit{Knowledge-Based Systems}; \textit{European Conference on Technology-Enhanced Learning (EC-TEL)}
+
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
 
 \end{document}
