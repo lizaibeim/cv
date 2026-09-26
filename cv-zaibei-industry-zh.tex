@@ -1,0 +1,229 @@
+%!TeX program = xelatex
+% Zaibei Li's Curriculum Vitae (Chinese version)
+% Email: zali@di.ku.dk
+% Web: https://lizaibeim.github.io
+
+\documentclass[11pt,letterpaper]{report}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{setspace} % custom line spacing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{xcolor}
+
+% what is your name?
+\newcommand{\myname}{李再倍}
+\newcommand{\mynameen}{Zaibei Li}
+
+% select default typefaces to match the English CV (EB Garamond serif + TeX Gyre Heros sans)
+\IfFileExists{ebgaramond.sty}
+    {\usepackage{ebgaramond}}       % document's serif typeface, same as the English CV
+    {\setmainfont{TeX Gyre Termes}} % fallback if EB Garamond is not installed
+% load by file name: XeTeX on macOS cannot find TeX-tree fonts by family name
+\setsansfont{texgyreheros}[Extension=.otf,
+    UprightFont=*-regular, BoldFont=*-bold,
+    ItalicFont=*-italic, BoldItalicFont=*-bolditalic,
+    LetterSpace=3.0] % sans serif with tracking, as in the English CV headings
+
+% select CJK typefaces (only used for CJK-range characters; Latin stays in the fonts above)
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}[LetterSpace=6.0] % tracked headings, mirroring the English CV
+
+% how far to tab for list items with left-aligned date
+\newcommand{\listtabwidth}{2.0cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+% (the English CV uses \small for letterspaced ALL-CAPS headings; CJK has no
+% uppercase, so headings must be at least body size to read as headings)
+\titleformat{\section}{\sffamily\normalsize\bfseries}{}{}{}{}
+\titlespacing{\section}{0pt}{24pt plus 4pt minus 4pt}{7pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\sffamily\small\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.95}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\THEYEAR 年 \THEMONTH 月}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\mynameen},
+    pdfkeywords = {multimodal learning analytics, Human-AI collaboration, IoT, ubiquitous computing},
+    pdftitle    = {\mynameen: Curriculum Vitae (Chinese)},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname} {\normalfont\Large (\mynameen)}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Human-Centered Computing 研究组\\
+        计算机科学系\\
+        哥本哈根大学
+    \end{minipage}%
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \flushright{}
+        \href{mailto:zali@di.ku.dk}{zali@di.ku.dk} \\
+        +45 91858214 \\
+        \href{https://lizaibeim.github.io}{lizaibeim.github.io}
+    \end{minipage}
+
+    \section*{研究简介}
+
+    计算机科学博士研究生，主要从事多模态感知、可穿戴系统与 Human-Centered Computing 方向的交叉研究。擅长设计与构建端到端系统，涵盖多模态数据采集、传感器融合、可解释行为建模以及交互式人工智能应用。希望寻求与多模态感知、可穿戴系统及 Human-Centered AI 相关的研究实习机会。
+
+    \section*{教育背景}
+
+    \begin{tablist}
+
+        \item[博士] \tab{}计算机科学，哥本哈根大学，哥本哈根，2027 年（预计）
+        \item[硕士]  \tab{}计算机科学，哥本哈根大学，2022 年
+        \item[学士]  \tab{}信息科技，香港理工大学，2019 年
+        \item[交换生]  \tab{}计算机科学，韩国科学技术院（KAIST），2017 年
+
+    \end{tablist}
+
+
+    \section*{技术技能}
+
+    Python、C\#、Java、PyTorch、TensorFlow、OpenCV、Unity、Docker、Git、物联网原型开发、流处理
+
+    \section*{科研经历}
+
+    \noindent \textbf{广岛市立大学} \hfill 日本，广岛 \\
+    \textit{访问研究员} \hfill 2025 年 11 月--2026 年 1 月
+    \begin{list}{\textbullet}{\setlength{\leftmargin}{1.2em}
+                   \setlength{\labelsep}{0.5em}
+                   \setlength{\itemsep}{\listitemspace}
+                   \setlength{\parsep}{\listitemspace}}
+        \item 基于移动设备、嵌入式传感器和智能眼镜，搭建了用于真实场景协作学习分析的第一人称视角多模态感知原型系统。
+        \item 开发了 CoLA——一个配备交互式人工智能引导者的可穿戴平台，用于实时协作学习分析；与 Meta Project Aria 建立了研究合作关系。
+    \end{list}
+    \vspace{0.8em}
+
+    \noindent \textbf{哥本哈根大学} \hfill 丹麦，哥本哈根 \\
+    \textit{博士研究生} \hfill 2024 年 2 月--至今
+    \begin{list}{\textbullet}{\setlength{\leftmargin}{1.2em}
+                   \setlength{\labelsep}{0.5em}
+                   \setlength{\itemsep}{\listitemspace}
+                   \setlength{\parsep}{\listitemspace}}
+        \item 设计并开发了 OpenMMLA——一个可复用的基于物联网的工具包，用于协作学习环境中的多模态数据采集、同步与分析。
+        \item 构建了用于传感器融合、行为建模与可视化的交互式流水线组件，实现对复杂群体互动的可解释分析，并与 Life Campus 合作开展了由诺和诺德基金会资助的项目。
+    \end{list}
+    \vspace{0.8em}
+
+    \noindent \textbf{哥本哈根大学} \hfill 丹麦，哥本哈根 \\
+    \textit{研究助理} \hfill 2023 年 6 月--2024 年 2 月
+    \begin{list}{\textbullet}{\setlength{\leftmargin}{1.2em}}
+        \item 为多模态学习分析设计了社会计量徽章及基于 AprilTag 的空间追踪方案原型。
+        \item 构建了 mBox 的早期数据采集与处理流程，该多模态感知原型后来演化为 OpenMMLA。
+    \end{list}
+
+
+    \section*{代表性项目}
+
+    \begin{itemize}
+
+        \item \textbf{CoLA}：面向协作学习场景的可穿戴多模态人工智能平台，支持第一人称感知、实时行为分析与交互式引导，\href{https://ucph-cola.org}{\textcolor{blue}{\textit{链接}}}
+        \item \textbf{OpenMMLA}：面向真实协作环境的开源物联网工具包，支持多模态数据采集、同步与分析，\href{https://github.com/ucph-ccs/OpenMMLA}{\textcolor{blue}{\textit{链接}}}
+        \item \textbf{mBox}：早期多模态感知原型，包含社会计量徽章、音频处理流水线及基于 AprilTag 的空间追踪，后演化为 OpenMMLA，\href{https://github.com/ucph-ccs/mbox-uber}{\textcolor{blue}{\textit{链接}}}
+
+    \end{itemize}
+
+
+    \section*{代表性论文与预印本}
+
+    \begin{tablist}
+        \item[2026] \tab{} \textbf{Z. Li} et al. \enquote{CoLA: An Evidence-Continuity System for Multimodal Observation and Support in Collaborative Learning.} \textit{To be resubmitted to Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies (IMWUT), November 2026 round} \textit{[修改中]}
+        \item[2026] \tab{} \textbf{Z. Li}, V. Holm-Janas, S. Yamaguchi, and D. Spikol. \enquote{Designing for Transparency: Gaze-Augmented Collaborative Action Recognition with Vision-Language Models.} \textit{Proceedings of the 26th IEEE International Conference on Advanced Learning Technologies (ICALT '26)} \textit{[已录用]}
+        \item[2026] \tab{} \textbf{Z. Li}, Q. Li, S. Yamaguchi, and D. Spikol. \enquote{BadgeX: IoT-Enhanced Wearable Analytics Meets LLMs for Collaborative Learning.} \textit{arXiv preprint}, \href{https://arxiv.org/abs/2604.04093}{arXiv:2604.04093} \textit{[预印本]}
+        \item[2025] \tab{} \textbf{Z. Li}, S. Yamaguchi, and D. Spikol. \enquote{OpenMMLA: an IoT-based Multimodal Data Collection Toolkit for Learning Analytics.} \textit{Proceedings of the 15th Learning Analytics and Knowledge Conference (LAK '25)}, \href{https://doi.org/10.1145/3706468.3706525}{https://doi.org/10.1145/3706468.3706525} \textit{[口头报告]}
+        \item[2024] \tab{} \textbf{Z. Li}, M. T. Jensen, A. Nolte, and D. Spikol. \enquote{Field report for Platform mBox: Designing an Open MMLA Platform.} \textit{Proceedings of the 14th Learning Analytics and Knowledge Conference (LAK '24)}, \href{https://doi.org/10.1145/3636555.3636872}{https://doi.org/10.1145/3636555.3636872} \textit{[口头报告]}
+    \end{tablist}
+
+
+    \section*{奖项与资助}
+
+    \begin{tablist}
+        \item[2026\phantom{--2027}] \tab{}Meta Project Aria 研究合作 / 硬件资助
+        \item[2026\phantom{--2027}] \tab{}ICALT '26 最佳长文提名
+        \item[2025\phantom{--2027}] \tab{}LAK '25 最佳短文奖
+        \item[2024--2027] \tab{}哥本哈根大学博士奖学金
+    \end{tablist}
+
+    \section*{工作经历}
+
+    \begin{tablist}
+
+        \item[2019 年 5 月--8 月] \tab{}用友网络科技，IT 顾问，中国香港
+        \item[2017 年 6 月--8 月] \tab{}新浪网，数据分析实习生，中国北京
+
+    \end{tablist}
+
+    \section*{学术服务}
+
+    同行评审：\textit{Knowledge-Based Systems}；\textit{European Conference on Technology-Enhanced Learning (EC-TEL)}
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        更新于 \monthyeardate\today
+    \end{center}
+
+\end{document}
